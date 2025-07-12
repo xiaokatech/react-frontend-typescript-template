@@ -1,11 +1,18 @@
 import "./HomePage.css";
 
-import { useState } from "react";
 import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import type { IReduxRootState } from "../store/reducer";
+import { countDecrement, countIncrement } from "../store/actions/counterAction";
 
 export const HomePage = () => {
-  const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
+
+  const count = useSelector((state: IReduxRootState) => {
+    console.log("state", state);
+    return state.counter.counter || 0;
+  });
 
   return (
     <>
@@ -19,8 +26,20 @@ export const HomePage = () => {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <p>count is {count}</p>
+        <button
+          onClick={() => {
+            dispatch<any>(countIncrement());
+          }}
+        >
+          Increment
+        </button>
+        <button
+          onClick={() => {
+            dispatch<any>(countDecrement());
+          }}
+        >
+          decrement
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

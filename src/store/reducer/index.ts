@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { type ICounterReducerState, counterReducer } from "./CounterReducer";
 
 export interface IReduxRootState {
-  counterInfo: ICounterReducerState;
+  counter: ICounterReducerState;
 }
 
 export const createRootReducer = () =>
