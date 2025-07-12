@@ -8,5 +8,10 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
     includeSource: ["src/**/*.{js,ts}"],
+    browser: {
+      enabled: true,
+      provider: "playwright",
+      instances: [{ browser: "chromium" }],
+    },
   },
 });
