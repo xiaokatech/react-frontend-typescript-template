@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Select } from "antd";
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-}
+// interface Product {
+//   id: number;
+//   name: string;
+//   description: string;
+// }
 
 interface Region {
   id: number;
